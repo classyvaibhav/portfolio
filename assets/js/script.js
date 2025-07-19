@@ -155,3 +155,68 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.resume-project-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Switch to Portfolio tab
+      document.querySelectorAll('[data-page]').forEach(function(page) {
+        page.classList.remove('active');
+      });
+      document.querySelector('[data-page="portfolio"]').classList.add('active');
+
+      // Set Portfolio nav as active
+      document.querySelectorAll('[data-nav-link]').forEach(function(nav) {
+        nav.classList.remove('active');
+        if (nav.textContent.trim().toLowerCase() === 'portfolio') {
+          nav.classList.add('active');
+        }
+      });
+
+      // Filter to Technical Projects
+      document.querySelectorAll('[data-filter-btn]').forEach(function(btn) {
+        if (btn.textContent.trim().toLowerCase() === 'technical projects') {
+          btn.click();
+        }
+      });
+      document.querySelectorAll('[data-select-item]').forEach(function(item) {
+        if (item.textContent.trim().toLowerCase() === 'technical projects') {
+          item.click();
+        }
+      });
+    });
+  });
+
+  // Portfolio Modal Logic
+  const modal = document.getElementById('portfolioModal');
+  const modalImg = document.getElementById('portfolioModalImg');
+  const modalTitle = document.getElementById('portfolioModalTitle');
+  const modalCategory = document.getElementById('portfolioModalCategory');
+  const modalClose = document.getElementById('portfolioModalClose');
+
+  document.querySelectorAll('.project-item > a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const img = link.querySelector('img');
+      const title = link.querySelector('.project-title');
+      const category = link.querySelector('.project-category');
+      modalImg.src = img ? img.src : '';
+      modalImg.alt = img ? img.alt : '';
+      modalTitle.textContent = title ? title.textContent : '';
+      modalCategory.textContent = category ? category.textContent : '';
+      modal.classList.add('active');
+    });
+  });
+
+  modalClose.addEventListener('click', function() {
+    modal.classList.remove('active');
+  });
+
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+});
