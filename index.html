@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VK - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/My_avtar_new.png" alt="Vaibhav Kawade" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Vaibhav Kawade">Vaibhav Kawade</h1>
+
+          <p class="title">Embedded System Engineer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:vaibhav.kawade@mitaoe.ac.in" class="contact-link">vaibhav.kawade@mitoae.ac.in</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="mob:+919130601015" class="contact-link">+91 91306 01015</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1982-06-23">15 August</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Pune, Maharashtra, India</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://wa.me/+919130601015" class="social-link" target="_blank">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://github.com/classyvaibhav" class="social-link" target="_blank">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/classyvaibhav/" class="social-link" target="_blank">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/classyvaibhav" class="social-link" target="_blank">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+
+
+            I am an Electronics and Telecommunication Engineering graduate specializing in Embedded Systems and IoT
+            development. I have hands-on experience designing and implementing real-time embedded solutions using
+            platforms like STM32, ESP32, Raspberry Pi, and NXP i.MX8M Plus.
+
+            My core skills include firmware development, RTOS (FreeRTOS), Embedded Linux (Yocto Project), and
+            integration of communication protocols such as UART, SPI, I2C, CAN, and MQTT. I have worked on projects
+            involving AI-powered edge devices, cloud-connected IoT systems, and automotive-grade embedded applications.
+
+            I’m passionate about building robust, scalable embedded solutions with seamless cloud connectivity, and I
+            look forward to contributing to impactful innovations in embedded systems, IoT, and intelligent device
+            integration.
+
+          </p>
+
+          <p>
+
+          </p>
+        </section>
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What i'm doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg
+                " alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Embedded Systems Development</h4>
+
+                <p class="service-item-text">
+                  Developing innovative and reliable embedded systems, focusing on hardware-software integration and
+                  optimization.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Achievements icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">PCB Design & Circuit Development</h4>
+
+                <p class="service-item-text">
+                  Skilled in creating efficient PCB layouts and designing robust circuits for various electronic
+                  Compititions.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">DIY Electronics Projects</h4>
+
+                <p class="service-item-text">
+                  Passionate about creating custom DIY electronics projects, exploring new technologies, and applying
+                  them practically.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Programming</h4>
+
+                <p class="service-item-text">
+                  C, C++, Python, PLC(ladder)
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+        <!--
+          - testimonials
+        -->
+
+        <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Team Members</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Shantanu Bhimanpallewar</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Team member
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Riddhi Badhel</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Group member
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Richa Badhel</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Team member
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Abhinay Ambhore</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+          </section>
+
+        </div>
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Clients</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-1-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-2-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-3-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-4-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-5-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-6-color.png" alt="client logo">
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+      <!--
+        - #RESUME
+      -->
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <!-- Education -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">MIT Academy of Engineering, Pune</h4>
+              <span>2022 — 2025</span>
+              <p class="timeline-text">
+                Bachelor of Technology in Electronics and Telecommunication Engineering — CGPA: 7.43/10<br>
+                Coursework: Embedded Systems, Digital Signal Processing, VLSI Design, Communication Networks, Electric
+                Vehicle.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Government Polytechnic, Dharashiv</h4>
+              <span>2019 — 2022</span>
+              <p class="timeline-text">
+                Diploma in Electronics and Communication Engineering — 86%
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Experience -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Internships & Experience</h3>
+          </div>
+          <ol class="timeline-list">
+
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Embedded System Design Intern</h4>
+              <span>Maven Silicon, Bengaluru | Jan 2025 — May 2025</span>
+              <p class="timeline-text">
+                • Home Automation project using ESP32 (embedded C, real-time control).<br>
+                • Firmware for sensor interfacing, wireless communication, and IoT integration.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Electronics & Telecommunication Engineering Intern</h4>
+              <span>Central Railway, Pune | June 2024 — July 2024</span>
+              <p class="timeline-text">
+                • Maintained Linux-based Driver Display Units (DDUs) and analyzed power electronics systems.<br>
+                • Testing/calibration of meters and R&D for power control and diagnostics.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Industrial Trainee</h4>
+              <span>Sumago Infotech Pvt. Ltd, Pune | Aug 2021 — Sept 2021</span>
+              <p class="timeline-text">
+                • Practical training in Automotive and Electric Vehicle (EV) systems, powertrain components, and fault
+                diagnosis.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Projects -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="construct-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Projects</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">
+                <a href="#" class="resume-project-link">Portable Bilingual Language Translator Using Raspberry Pi
+                  Zero</a>
+              </h4>
+              <span>Jan 2025 — May 2025</span>
+              <p class="timeline-text">
+                • Real-time speech-to-text and text-to-speech translation.<br>
+                • Google Translate API, Deep Learning models, LCD UI.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">
+                <a href="#" class="resume-project-link">Autonomous Pathfinding: Drone and Rover System</a>
+              </h4>
+              <span>Aug 2024 — Dec 2024</span>
+              <p class="timeline-text">
+                • Drone for aerial footage, rover for real-time path detection.<br>
+                • Video processing and ML on Raspberry Pi 5.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">
+                <a href="#" class="resume-project-link">IoT-Based Automated Bottle Filling and Capping System</a>
+              </h4>
+              <span>Aug 2023 — Dec 2024</span>
+              <p class="timeline-text">
+                • Raspberry Pi, CAN protocol, Python & Embedded C.<br>
+                • Automated, accurate, and efficient bottle filling/capping.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">
+                <a href="#" class="resume-project-link">Face Recognition Based Attendance System Using ESP32 CAM</a>
+              </h4>
+              <span>May 2023 — Jun 2023</span>
+              <p class="timeline-text">
+                • Face recognition algorithms, real-time database updates.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Positions of Responsibility -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="people-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Positions of Responsibility</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Team Lead, TechnoPHILIA’24</h4>
+              <span>2024</span>
+              <p class="timeline-text">
+                • Led a national project competition with 320+ participants (ISA Pune Section & IEEE Student Branch).
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">President, Spark Club</h4>
+              <span>2023 — 2025</span>
+              <p class="timeline-text">
+                • Organized hands-on sessions on Embedded Systems, IoT, and PCB Design.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Certifications -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="ribbon-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Certifications</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Altium Designer Certification – Altium Education</h4>
+              <span>Apr 2025</span>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Embedded C Programming with STM32 Microcontroller – Udemy</h4>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Mastering RTOS: FreeRTOS & STM32Fx – Udemy</h4>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">NPTEL - Internet of Things</h4>
+              <span>Aggregate: 72/100</span>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">VLSI System On Chip Design - Overview – Maven Silicon</h4>
+              <span>Mar 2025</span>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Skills -->
+        <section class="skill">
+          <h3 class="h3 skills-title">My Skills</h3>
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Programming Languages</h5>
+                <data value="90">C, Embedded C, C++, Python</data>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Embedded Platforms</h5>
+                <data value="90">STM32, ESP32, AVR, ARM Cortex-M, Raspberry Pi, NXP i.MX 8M Plus</data>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Communication Protocols</h5>
+                <data value="85">UART, I2C, SPI, CAN, USB, BLE, MQTT, TCP/IP Stack</data>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Embedded Linux & RTOS</h5>
+                <data value="80">Yocto Project, U-Boot, Device Trees, Linux Kernel, FreeRTOS</data>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Tools & IDEs</h5>
+                <data value="85">STM32CubeIDE, Keil, MPLAB, Git, GitHub, Proteus, VS Code</data>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Hardware & Testing</h5>
+                <data value="85">PCB Testing, Thermal Profiling, Altium Designer, KiCAD, 2–4 Layer PCB Layout, EMI/EMC
+                  Basics</data>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Simulation & Modeling</h5>
+                <data value="75">MATLAB/Simulink, Fusion 360</data>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Soft Skills</h5>
+                <data value="80">Problem-Solving, Analytical Thinking, Teamwork, Communication, Time Management</data>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </article>
+
+
+      <!--
+      - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Technical Projects</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Competitions</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Achievements</button>
+            </li>
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Technical Projects</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Competitions</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Achievements</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="Achievements">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/Technophilia.png" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Team Lead - Technophilia'24</h3>
+
+                <p class="project-category">Achievements</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Achievements">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/Railway_internship.png" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Central Railway - Internship</h3>
+
+                <p class="project-category">Achievements</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Technical Projects">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Fundo</h3>
+
+                <p class="project-category">Technical Projects</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Competitions">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/Technodium.png" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Brawlhalla</h3>
+
+                <p class="project-category">Competitions</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Technical Projects">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">DSM.</h3>
+
+                <p class="project-category">Technical Projects</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Technical Projects">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">MetaSpark</h3>
+
+                <p class="project-category">Technical Projects</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Achievements">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Summary</h3>
+
+                <p class="project-category">Achievements</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Competitions">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Task Manager</h3>
+
+                <p class="project-category">Competitions</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Achievements">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/robotics.png" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Arrival</h3>
+
+                <p class="project-category">Achievements</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="Technical Projects">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/Technophilia.png" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Team Lead - Technophilia'24</h3>
+
+                <p class="project-category">Technical Projects</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Best of Raspberry pi projects</h3>
+
+                  <p class="blog-text">
+                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-2.jpg" alt="Your Guide to PCB Design Basics & Steps" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Tech</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Your Guide to PCB Design Basics & Steps</h3>
+
+                  <p class="blog-text">
+                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-3.jpg" alt="Write Better Code with Block Diagrams and Flowcharts"
+                    loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Write Better Code with Block Diagrams and Flowcharts</h3>
+
+                  <p class="blog-text">
+                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-4.jpg" alt="A Short Primer on the Electronics Industry" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">A Short Primer on the Electronics Industry</h3>
+
+                  <p class="blog-text">
+                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-5.jpg" alt="Smart Water Quality Monitoring System Using IoT"
+                    loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Smart Water Quality Monitoring System Using IoT</h3>
+
+                  <p class="blog-text">
+                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #79</h3>
+
+                  <p class="blog-text">
+                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.0531455786795!2d73.89285997603969!3d18.661610982459653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c62e72855835%3A0x83f9befaec034ab2!2sBuilding-E%2C%20TANISHQ%20ORCHID%2C%20Maharashtra%20412105!5e0!3m2!1sen!2sin!4v1732969081916!5m2!1sen!2sin"
+              width="400" height="300" loading="lazy"></iframe>
+
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="https://api.web3forms.com/submit" method="POST" class="form" data-form>
+
+            <input type="hidden" name="access_key" value="0bc3aa2b-6f27-4217-aa7d-261a001c9709">
+            <input type="hidden" name="subject" value="New Submission from Portfolio">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+            <div class="form-success-message" data-form-success>
+              <div class="success-icon">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+              </div>
+              <p>Message Sent Successfully!</p>
+            </div>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Portfolio Modal -->
+  <div class="portfolio-modal" id="portfolioModal">
+    <div class="portfolio-modal-content">
+      <span class="portfolio-modal-close" id="portfolioModalClose">&times;</span>
+      <img id="portfolioModalImg" src="" alt="" style="width:100%;border-radius:12px;">
+      <h3 id="portfolioModalTitle" style="color:white;margin-top:16px;"></h3>
+      <p id="portfolioModalCategory" style="color:#ccc;"></p>
+    </div>
+  </div>
+
+</body>
+
+</html>
