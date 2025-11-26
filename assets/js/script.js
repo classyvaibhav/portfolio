@@ -7,6 +7,35 @@ const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 
 
+/*-----------------------------------*\
+  #THEME TOGGLE
+\*-----------------------------------*/
+
+// Theme toggle button
+const themeToggleBtn = document.getElementById('theme-toggle-btn');
+
+// Check for saved theme preference or default to dark theme
+const currentTheme = localStorage.getItem('theme') || 'dark';
+
+// Apply the saved theme on page load
+if (currentTheme === 'light') {
+  document.body.classList.add('light-theme');
+}
+
+// Theme toggle functionality
+themeToggleBtn.addEventListener('click', function () {
+  document.body.classList.toggle('light-theme');
+
+  // Save theme preference to localStorage
+  let theme = 'dark';
+  if (document.body.classList.contains('light-theme')) {
+    theme = 'light';
+  }
+  localStorage.setItem('theme', theme);
+});
+
+
+
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");

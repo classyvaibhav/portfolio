@@ -97,6 +97,70 @@
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
 
+  /* navbar background */
+  --bg-navbar: hsla(240, 1%, 17%, 0.75);
+
+}
+
+/*-----------------------------------*\
+  #LIGHT THEME
+\*-----------------------------------*/
+
+body.light-theme {
+
+  /**
+   * light theme colors
+   */
+
+  /* gradient */
+
+  --bg-gradient-onyx: linear-gradient(to bottom right,
+      hsl(240, 1%, 95%) 3%,
+      hsl(0, 0%, 98%) 97%);
+  --bg-gradient-jet: linear-gradient(to bottom right,
+      hsla(240, 1%, 98%, 0.251) 0%,
+      hsla(240, 2%, 100%, 0) 100%), hsl(240, 2%, 99%);
+  --bg-gradient-yellow-1: linear-gradient(to bottom right,
+      hsl(217, 91%, 60%) 0%,
+      hsla(217, 91%, 60%, 0) 50%);
+  --bg-gradient-yellow-2: linear-gradient(135deg,
+      hsla(217, 91%, 60%, 0.251) 0%,
+      hsla(217, 91%, 55%, 0) 59.86%), hsl(240, 2%, 99%);
+  --border-gradient-onyx: linear-gradient(to bottom right,
+      hsl(0, 0%, 85%) 0%,
+      hsla(0, 0%, 85%, 0) 50%);
+  --text-gradient-yellow: linear-gradient(to right,
+      hsl(217, 91%, 55%),
+      hsl(217, 91%, 50%));
+
+  /* solid */
+
+  --jet: hsl(0, 0%, 88%);
+  --onyx: hsl(240, 1%, 92%);
+  --eerie-black-1: hsl(240, 2%, 97%);
+  --eerie-black-2: hsl(240, 2%, 98%);
+  --smoky-black: hsl(0, 0%, 98%);
+  --white-1: hsl(0, 0%, 5%);
+  --white-2: hsl(0, 0%, 10%);
+  --orange-yellow-crayola: hsl(217, 91%, 55%);
+  --vegas-gold: hsl(217, 91%, 50%);
+
+  /* navbar background */
+  --bg-navbar: hsla(0, 0%, 95%, 0.75);
+  --light-gray: hsl(0, 0%, 20%);
+  --light-gray-70: hsla(0, 0%, 35%, 0.85);
+  --bittersweet-shimmer: hsl(0, 43%, 51%);
+
+  /**
+   * shadow
+   */
+
+  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.1);
+  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.1);
+  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.1);
+  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.08);
+  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.1);
+
 }
 
 
@@ -163,6 +227,7 @@ html {
 
 body {
   background: var(--smoky-black);
+  transition: background var(--transition-2), color var(--transition-2);
 }
 
 
@@ -498,7 +563,7 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: hsla(240, 1%, 17%, 0.75);
+  background: var(--bg-navbar);
   backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
@@ -529,6 +594,71 @@ main {
 .navbar-link.active {
   color: var(--orange-yellow-crayola);
 }
+
+
+/*-----------------------------------*\
+  #THEME TOGGLE
+\*-----------------------------------*/
+
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--border-gradient-onyx);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: var(--orange-yellow-crayola);
+  box-shadow: var(--shadow-2);
+  z-index: 10;
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+
+.theme-toggle-btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--bg-gradient-yellow-1);
+  transform: scale(1.1);
+}
+
+.theme-toggle-btn:hover::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
+.theme-toggle-btn ion-icon {
+  --ionicon-stroke-width: 50px;
+  transition: var(--transition-2);
+}
+
+.theme-toggle-btn ion-icon[name="moon-outline"] {
+  display: block;
+}
+
+.theme-toggle-btn ion-icon[name="sunny-outline"] {
+  display: none;
+}
+
+body.light-theme .theme-toggle-btn ion-icon[name="moon-outline"] {
+  display: none;
+}
+
+body.light-theme .theme-toggle-btn ion-icon[name="sunny-outline"] {
+  display: block;
+}
+
 
 
 
@@ -597,6 +727,10 @@ main {
 
 .service-icon-box img {
   margin: auto;
+}
+
+body.light-theme .service-icon-box img {
+  filter: hue-rotate(172deg) brightness(0.9);
 }
 
 .service-content-box {
@@ -833,6 +967,15 @@ main {
 
 .clients-item img:hover {
   filter: grayscale(0);
+}
+
+/* Light theme client logos */
+body.light-theme .clients-item img {
+  filter: grayscale(1) invert(1);
+}
+
+body.light-theme .clients-item img:hover {
+  filter: grayscale(0) invert(1);
 }
 
 
@@ -1282,6 +1425,12 @@ main {
   height: 100%;
   border: none;
   filter: grayscale(1) invert(1);
+  transition: filter var(--transition-2);
+}
+
+/* Light theme map styling */
+body.light-theme .mapbox iframe {
+  filter: grayscale(0.8);
 }
 
 .contact-form {
