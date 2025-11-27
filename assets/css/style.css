@@ -730,7 +730,7 @@ body.light-theme .theme-toggle-btn ion-icon[name="sunny-outline"] {
 }
 
 body.light-theme .service-icon-box img {
-  filter: hue-rotate(172deg) brightness(0.9);
+  filter: hue-rotate(172deg) brightness(0.6) saturate(1.5);
 }
 
 .service-content-box {
@@ -1396,6 +1396,31 @@ body.light-theme .clients-item img:hover {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
+}
+
+.linkedin-embed-item {
+  background: var(--border-gradient-onyx);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  box-shadow: var(--shadow-4);
+  position: relative;
+  z-index: 1;
+}
+
+.linkedin-embed-item::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: var(--eerie-black-1);
+  z-index: -1;
+}
+
+.linkedin-embed-item iframe {
+  max-width: 100%;
+  border-radius: 8px;
 }
 
 
