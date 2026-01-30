@@ -226,13 +226,61 @@ html {
 }
 
 body {
-  background: var(--smoky-black);
-  transition: background var(--transition-2), color var(--transition-2);
+  background:
+    linear-gradient(135deg,
+      var(--smoky-black) 0%,
+      hsl(240, 2%, 15%) 50%,
+      var(--smoky-black) 100%);
+  background-attachment: fixed;
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow-x: hidden;
 }
 
+/* Subtle gradient animation */
+@keyframes gradientShift {
 
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
 
+  50% {
+    background-position: 100% 50%;
+  }
+}
 
+/* Light theme background */
+body.light-theme {
+  background:
+    linear-gradient(135deg,
+      hsl(0, 0%, 98%) 0%,
+      hsl(210, 20%, 95%) 50%,
+      hsl(0, 0%, 98%) 100%);
+  background-attachment: fixed;
+  background-size: 400% 400%;
+}
+
+/* Smooth theme transition for all elements */
+* {
+  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    fill 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Preserve specific transitions for animated elements */
+article,
+article.active,
+.navbar-link,
+.theme-toggle-btn ion-icon {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
 /*-----------------------------------*\
   #REUSED STYLE
@@ -240,12 +288,26 @@ body {
 
 .sidebar,
 article {
-  background: var(--eerie-black-2);
-  border: 1px solid var(--jet);
+  background: rgba(30, 30, 30, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 15px;
-  box-shadow: var(--shadow-1);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
   z-index: 1;
+}
+
+/* Light theme glass effect */
+body.light-theme .sidebar,
+body.light-theme article {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 .separator {
@@ -285,20 +347,48 @@ article {
 
 article {
   display: none;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
 }
 
 article.active {
   display: block;
-  animation: fade 0.5s ease backwards;
+  animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes fade {
+@keyframes slideInUp {
   0% {
     opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    filter: blur(4px);
+  }
+
+  50% {
+    opacity: 0.7;
+    filter: blur(2px);
   }
 
   100% {
     opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Exit animation for outgoing tab */
+article.exiting {
+  animation: slideOutUp 0.4s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+}
+
+@keyframes slideOutUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
   }
 }
 
@@ -428,6 +518,59 @@ main {
 .avatar-box {
   background: var(--bg-gradient-onyx);
   border-radius: 20px;
+  perspective: 1000px;
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.avatar-box img {
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.avatar-box:hover img {
+  transform: scale(1.05) translateZ(20px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px var(--orange-yellow-crayola);
+  filter: brightness(1.1);
+}
+
+/* 3D Glow effect */
+.avatar-box::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 25px;
+  background: var(--text-gradient-yellow);
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.avatar-box:hover::before {
+  opacity: 0.4;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
 }
 
 .info-content .name {
@@ -563,12 +706,24 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: var(--bg-navbar);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--jet);
+  background: rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px 12px 0 0;
-  box-shadow: var(--shadow-2);
+  box-shadow:
+    0 -4px 16px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
   z-index: 5;
+}
+
+/* Light theme navbar */
+body.light-theme .navbar {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  box-shadow:
+    0 -4px 16px 0 rgba(31, 38, 135, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
 }
 
 .navbar-list {
@@ -583,16 +738,36 @@ main {
   color: var(--light-gray);
   font-size: var(--fs-8);
   padding: 20px 7px;
-  transition: color var(--transition-1);
+  position: relative;
+  transition: all var(--transition-1);
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: var(--text-gradient-yellow);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar-link:hover,
 .navbar-link:focus {
   color: var(--light-gray-70);
+  transform: translateY(-2px);
 }
 
 .navbar-link.active {
   color: var(--orange-yellow-crayola);
+  transform: translateY(-2px);
+}
+
+.navbar-link.active::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 
@@ -640,23 +815,93 @@ main {
 
 .theme-toggle-btn ion-icon {
   --ionicon-stroke-width: 50px;
-  transition: var(--transition-2);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: absolute;
 }
 
 .theme-toggle-btn ion-icon[name="moon-outline"] {
   display: block;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 .theme-toggle-btn ion-icon[name="sunny-outline"] {
-  display: none;
+  display: block;
+  opacity: 0;
+  transform: rotate(180deg) scale(0);
 }
 
 body.light-theme .theme-toggle-btn ion-icon[name="moon-outline"] {
-  display: none;
+  opacity: 0;
+  transform: rotate(-180deg) scale(0);
 }
 
 body.light-theme .theme-toggle-btn ion-icon[name="sunny-outline"] {
-  display: block;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Ripple effect for theme transition */
+.theme-toggle-btn::after {
+  content: "";
+  position: fixed;
+  top: 45px;
+  right: 45px;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--orange-yellow-crayola) 0%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9;
+  transition: none;
+}
+
+.theme-toggle-btn.ripple-effect::after {
+  animation: themeRipple 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes themeRipple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    width: 3000px;
+    height: 3000px;
+    opacity: 0;
+  }
+}
+
+/* Button pulse animation on click */
+.theme-toggle-btn.clicking {
+  animation: buttonPulse 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes buttonPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(0.85) rotate(-10deg);
+  }
+
+  50% {
+    transform: scale(1.15) rotate(10deg);
+  }
+
+  75% {
+    transform: scale(0.95) rotate(-5deg);
+  }
 }
 
 
@@ -705,11 +950,43 @@ body.light-theme .theme-toggle-btn ion-icon[name="sunny-outline"] {
 
 .service-item {
   position: relative;
-  background: var(--border-gradient-onyx);
+  background: rgba(45, 45, 45, 0.3);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
   padding: 20px;
   border-radius: 14px;
-  box-shadow: var(--shadow-2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 16px 0 rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
   z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  background: rgba(45, 45, 45, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px 0 rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Light theme service cards */
+body.light-theme .service-item {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(209, 213, 219, 0.25);
+  box-shadow:
+    0 4px 16px 0 rgba(31, 38, 135, 0.12),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+}
+
+body.light-theme .service-item:hover {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(209, 213, 219, 0.4);
+  box-shadow:
+    0 8px 24px 0 rgba(31, 38, 135, 0.18),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
 }
 
 .service-item::before {
@@ -729,8 +1006,21 @@ body.light-theme .theme-toggle-btn ion-icon[name="sunny-outline"] {
   margin: auto;
 }
 
+.service-icon-box ion-icon {
+  font-size: 40px;
+  color: var(--orange-yellow-crayola);
+  --ionicon-stroke-width: 35px;
+  display: block;
+  margin: auto;
+}
+
 body.light-theme .service-icon-box img {
   filter: hue-rotate(172deg) brightness(0.6) saturate(1.5);
+}
+
+body.light-theme .service-icon-box ion-icon {
+  color: var(--orange-yellow-crayola);
+  /* Blue in light theme */
 }
 
 .service-content-box {
@@ -776,8 +1066,9 @@ body.light-theme .service-icon-box img {
 }
 
 .testimonials-item {
-  min-width: 100%;
+  min-width: calc(100% - 30px);
   scroll-snap-align: center;
+  flex-shrink: 0;
 }
 
 .testimonials-avatar-box {
@@ -955,8 +1246,9 @@ body.light-theme .service-icon-box img {
 }
 
 .clients-item {
-  min-width: 50%;
+  min-width: calc(50% - 15px);
   scroll-snap-align: start;
+  flex-shrink: 0;
 }
 
 .clients-item img {

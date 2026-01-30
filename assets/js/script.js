@@ -22,16 +22,35 @@ if (currentTheme === 'light') {
   document.body.classList.add('light-theme');
 }
 
-// Theme toggle functionality
+// Enhanced theme toggle functionality with animations
 themeToggleBtn.addEventListener('click', function () {
-  document.body.classList.toggle('light-theme');
+  // Add button pulse animation
+  themeToggleBtn.classList.add('clicking');
 
-  // Save theme preference to localStorage
-  let theme = 'dark';
-  if (document.body.classList.contains('light-theme')) {
-    theme = 'light';
-  }
-  localStorage.setItem('theme', theme);
+  // Add ripple effect
+  themeToggleBtn.classList.add('ripple-effect');
+
+  // Toggle theme after a tiny delay for better visual sync
+  setTimeout(() => {
+    document.body.classList.toggle('light-theme');
+
+    // Save theme preference to localStorage
+    let theme = 'dark';
+    if (document.body.classList.contains('light-theme')) {
+      theme = 'light';
+    }
+    localStorage.setItem('theme', theme);
+  }, 100);
+
+  // Remove clicking animation class after animation completes
+  setTimeout(() => {
+    themeToggleBtn.classList.remove('clicking');
+  }, 600);
+
+  // Remove ripple effect class after animation completes
+  setTimeout(() => {
+    themeToggleBtn.classList.remove('ripple-effect');
+  }, 1200);
 });
 
 
@@ -42,6 +61,45 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+
+
+
+/*-----------------------------------*\
+  #3D AVATAR EFFECT
+\*-----------------------------------*/
+
+// 3D mouse tracking effect for avatar
+const avatarBox = document.querySelector('.avatar-box');
+const avatarImg = document.querySelector('.avatar-box img');
+
+if (avatarBox && avatarImg) {
+  avatarBox.addEventListener('mousemove', function (e) {
+    const rect = avatarBox.getBoundingClientRect();
+    const x = e.clientX - rect.left; // Mouse X position within the element
+    const y = e.clientY - rect.top;  // Mouse Y position within the element
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Calculate rotation angles (max ±15 degrees)
+    const rotateX = ((y - centerY) / centerY) * -15;
+    const rotateY = ((x - centerX) / centerX) * 15;
+
+    // Apply 3D transform
+    avatarImg.style.transform = `
+      perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale(1.05)
+      translateZ(20px)
+    `;
+  });
+
+  avatarBox.addEventListener('mouseleave', function () {
+    // Reset to default position
+    avatarImg.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) translateZ(0)';
+  });
+}
 
 
 
@@ -219,21 +277,53 @@ if (form) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-// add event to all nav link
+// add event to all nav link with enhanced animation
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
+    const clickedNavLink = this;
+    const targetPage = clickedNavLink.innerHTML.toLowerCase();
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
+    // Find currently active page
+    const currentPage = document.querySelector("[data-page].active");
+
+    // If clicking the same tab, do nothing
+    if (currentPage && currentPage.dataset.page === targetPage) {
+      return;
     }
 
+    // Add exiting animation to current page
+    if (currentPage) {
+      currentPage.classList.add("exiting");
+
+      // Wait for exit animation to complete before switching
+      setTimeout(() => {
+        currentPage.classList.remove("active", "exiting");
+
+        // Now activate the new page
+        for (let i = 0; i < pages.length; i++) {
+          if (targetPage === pages[i].dataset.page) {
+            pages[i].classList.add("active");
+            navigationLinks[i].classList.add("active");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            pages[i].classList.remove("active");
+            navigationLinks[i].classList.remove("active");
+          }
+        }
+      }, 400); // Match the exit animation duration
+    } else {
+      // No current page, just activate the new one
+      for (let i = 0; i < pages.length; i++) {
+        if (targetPage === pages[i].dataset.page) {
+          pages[i].classList.add("active");
+          navigationLinks[i].classList.add("active");
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          pages[i].classList.remove("active");
+          navigationLinks[i].classList.remove("active");
+        }
+      }
+    }
   });
 }
 
